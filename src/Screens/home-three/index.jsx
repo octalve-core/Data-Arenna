@@ -1,8 +1,6 @@
 import HomeThreeNav from "../../Components/home-three/home-three-nav";
-import { FaFacebookF, FaInstagramSquare, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagramSquare } from "react-icons/fa";
 import { SiX } from "react-icons/si";
-
-import homeThreeHeaderBg from "../../Assets/home-three-header-bg.png";
 // import HomeThreeServiceCard from "../../Components/home-three/service-card";
 import AppLogo from "../../Components/app-logo";
 import { useNavigate } from "react-router-dom";
@@ -334,9 +332,9 @@ const HomeThree = () => {
 								</p>
 							</div>
 							<div className="flex items-center gap-4 text-slate-500">
-								<a href="#" className="transition hover:text-slate-900"><FaInstagramSquare size={24} /></a>
-								<a href="#" className="transition hover:text-slate-900"><SiX size={24} /></a>
-								<a href="#" className="transition hover:text-slate-900"><FaFacebookF size={24} /></a>
+							<button className="transition hover:text-slate-900" aria-label="Instagram"><FaInstagramSquare size={24} /></button>
+							<button className="transition hover:text-slate-900" aria-label="X (Twitter)"><SiX size={24} /></button>
+							<button className="transition hover:text-slate-900" aria-label="Facebook"><FaFacebookF size={24} /></button>
 							</div>
 						</div>
 

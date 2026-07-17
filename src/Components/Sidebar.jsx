@@ -9,7 +9,6 @@ import { FaCircle, FaBars } from "react-icons/fa";
 import { GiThreeFriends } from "react-icons/gi";
 import { ModalComponents } from "./DefaultHeader";
 import { useIdleTimer } from "react-idle-timer";
-import AppLogo from "./app-logo";
 import dataarena from "../Assets/dataarena.png"
 
 export let CapitalizeFirst = text => {

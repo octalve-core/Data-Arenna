@@ -16,7 +16,7 @@ import { useFlutterwave, closePaymentModal } from "flutterwave-react-v3";
 import axios from "axios";
 import { usePaystackPayment } from "react-paystack";
 import { useValidation } from "../../Data/useFetch";
-import { useMonnifyPayment } from "react-monnify";
+import Monnify from "monnify-js";
 import { MainPaginate, MainRanger } from "../Transactions";
 
 let colorArr = ["#E9F9F9", "#C0938E", "#000000", "#B3CEDE"];
@@ -1051,15 +1051,24 @@ const MakeCardsMonnify = ({ isOpen, back, back2 }) => {
 		console.log(response);
 		setPayment(response);
 	};
-	let [amount, setAmount] = useState(""),
-		[reference, setReference] = useState(),
-		config = {
-			apiKey: process.env.REACT_APP_MONNIFY_API_KEY,
-			contractCode: process.env.REACT_APP_MONNIFY_CONTRACT_CODE,
-			reference,
-			amount,
+	let [amount, setAmount] = useState("");
+
+	const handleMonnifyPayment = reference => {
+		if (
+			!process.env.REACT_APP_MONNIFY_API_KEY ||
+			!process.env.REACT_APP_MONNIFY_CONTRACT_CODE
+		)
+			return;
+
+		const monnify = new Monnify(
+			process.env.REACT_APP_MONNIFY_API_KEY,
+			process.env.REACT_APP_MONNIFY_CONTRACT_CODE
+		);
+
+		monnify.initializePayment({
+			amount: Number(amount),
 			currency: "NGN",
-			payment_options: "card",
+			reference,
 			customerEmail: auth?.user?.email,
 			customerMobileNumber: auth?.user?.telephone,
 			customerFullName: `${auth?.user?.firstName} ${auth?.user?.lastName}`,
@@ -1067,18 +1076,11 @@ const MakeCardsMonnify = ({ isOpen, back, back2 }) => {
 				process.env.REACT_APP_AGENT_NAME +
 				" Wallet Funding" +
 				"Card wallet funding",
-			isTestMode: process.env.NODE_ENV === "development",
-			onComplete: onComplete,
+			paymentMethods: ["CARD"],
+			onComplete,
 			onClose: close,
-		},
-		handleMonnifyPayment = useMonnifyPayment(config);
-
-	useEffect(() => {
-		if (reference) {
-			handleMonnifyPayment(onComplete, close);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [reference]);
+		});
+	};
 
 	useEffect(() => {
 		if (payment_data) {
@@ -1152,8 +1154,7 @@ const MakeCardsMonnify = ({ isOpen, back, back2 }) => {
 				var resp = await axios.get(
 					`/api/v1/wallet/generate-wallet-reference?amount=${amount}`
 				);
-				// console.log({ resp: resp?.data });
-				setReference(resp?.data?.data);
+				handleMonnifyPayment(resp?.data?.data);
 				setLoading(false);
 			} catch (err) {
 				setLoading(false);
@@ -1170,7 +1171,6 @@ const MakeCardsMonnify = ({ isOpen, back, back2 }) => {
 		if (submit && wallet?.isFunded) {
 			back2();
 			setSubmit(false);
-			setReference("");
 			setPayment(null);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1336,7 +1336,6 @@ const MakeCardsFlutter = ({ isOpen, back, back2 }) => {
 				var resp = await axios.get(
 					`/api/v1/wallet/generate-wallet-reference?amount=${amount}`
 				);
-				// console.log({ resp: resp?.data });
 				setReference(resp?.data?.data);
 				setLoading(false);
 			} catch (err) {

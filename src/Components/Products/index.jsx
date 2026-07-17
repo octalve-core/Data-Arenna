@@ -4,9 +4,7 @@ import { Container } from "reactstrap";
 import { useParams } from "react-router-dom";
 import { GlobalState } from "../../Data/Context";
 import { BsPhone, BsTelephoneFill, BsPlugFill } from "react-icons/bs";
-import { FaGraduationCap } from "react-icons/fa";
 import { IoTvSharp } from "react-icons/io5";
-import { AiOutlineSwap } from "react-icons/ai";
 import { SiCoderwall } from "react-icons/si";
 
 export let productArr = [

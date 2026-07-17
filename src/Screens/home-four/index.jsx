@@ -4,7 +4,6 @@ import HomeFourAvatar from "../../Assets/HomeFourAvatar.png";
 import HomeFourRect from "../../Assets/HomeFourRect.png";
 import HomeFourHarr from "../../Assets/HomeFourHarr.png";
 import Typewriter from "typewriter-effect";
-import { motion } from "framer-motion";
 import FrameOne from "../../Assets/FrameOne.png";
 import FrameTwo from "../../Assets/FrameTwo.png";
 import Vector4 from "../../Assets/Vector4.png";
@@ -33,12 +32,7 @@ import Amazon from "../../Assets/Amazon.png";
 import { Link } from "react-scroll";
 import { socials } from "../../Components/Footer";
 import { useNavigate } from "react-router-dom";
-import Aos from "aos";
 import "aos/dist/aos.css";
-import Facebook from "../../Assets/Facebook.png";
-import Twitter from "../../Assets/Twitter.png";
-import Linkedin from "../../Assets/Linkedin.png";
-import Messenger from "../../Assets/Messenger.png";
 
 const HomeFour = () => {
   let navigate = useNavigate();

@@ -21,12 +21,8 @@ import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 
 import Home from "./Screens/home";
-import Home2 from "./Pages/home";
 import Home3 from "./Views/home";
-import HomeFour from "./Screens/home-four";
 import HomeThree from "./Screens/home-three";
-import HomeTwo from "./Screens/home-two/index";
-import HomeOne from "./Screens/home-one/index";
 
 // import HomeFive from "./Screens/home-five";
 // import HomeSix from "./Screens/home-six";
