@@ -1,0 +1,46 @@
+.home-one .hero-section {
+    background-image: linear-gradient(to right, #2272FF, #0D03C3);
+}
+
+.home-one .about {
+    background-color: #EAFEFF;
+}
+
+.home-one .services {
+    background-color: #0F0B30;
+}
+
+.home-one .testimony {
+    background-color: #0D2A80;
+}
+
+.home-one footer {
+    background-image: linear-gradient(to right, #2272FF, #0D03C3);
+}
+
+.gradient-text {
+    /* Set the background color */
+    background: linear-gradient(to right, #00F0FF 0%, #5773FF 100%);
+    /* Mask the color to the text, and remove the rest  */
+    background-clip: text;
+    /* Make the text fill color value transparent so the masked background color comes through */
+    -webkit-text-fill-color: transparent;
+}
+
+.gap-1 {
+    gap: 8px;
+}
+
+.gap-2 {
+    gap: 16px;
+}
+.gap-3 {
+    gap: 24px;
+}
+.gap-4 {
+    gap: 32px;
+}
+
+.w-fit {
+    width: fit-content;
+}

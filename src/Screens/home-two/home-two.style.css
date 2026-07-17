@@ -1,0 +1,19 @@
+.home-two .hero-section {
+    background-image: linear-gradient(to right, #1F1A8F, #5773FF);
+}
+
+.home-two .bg-rectangle {
+    position: absolute;
+    background: url("../../Assets/home-two-bg.png") no-repeat center;
+    background-size: cover;
+    inset: 0;
+}
+
+.home-two .services {
+    background: url('../../Assets/services-two.png') no-repeat top;
+    background-size: cover;
+}
+
+.home-two .testimony {
+    background-color: #1F1A8F;
+}
