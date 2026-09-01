@@ -7,7 +7,7 @@ const HomeThreeNav = () => {
   return (
 		<nav className="navbar navbar-expand-lg navbar-dark">
 			<div className="container">
-				<AppLogo height="50px" />
+				<AppLogo height="30px" />
 				<button
 					className="navbar-toggler p-15" 
 					type="button"
